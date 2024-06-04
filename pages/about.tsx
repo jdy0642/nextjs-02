@@ -2,19 +2,19 @@ import Head from 'next/head';
 import Link from 'next/link';
 import Widget from '@/components/Widget';
 
-export default function Home() {
+export default function About() {
   return (
     <>
       <Head>
-        <title> Welcome to my Next.js website </title>
+        <title> About this website </title>
       </Head>
       <div>
-        <Link href="/about" passHref>
-          About us
+        <Link href="/" passHref>
+          Back to home
         </Link>
       </div>
       <div>
-        <Widget pageName="index" />
+        <Widget pageName="about" />
       </div>
     </>
   );
