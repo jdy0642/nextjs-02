@@ -1,4 +1,4 @@
-export const getServerSideProps = async({params}) => {
+export const getServerSideProps = async({params}: any) => {
     const {name} = params;
     return {
         props: {
@@ -7,7 +7,7 @@ export const getServerSideProps = async({params}) => {
     }
 }
 
-export default function Home(props) {
+export default function Name(props: any) {
     return (
       <>{props.name}</>
     );
