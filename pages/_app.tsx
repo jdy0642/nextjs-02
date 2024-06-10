@@ -21,17 +21,8 @@ export default function App({ Component, pageProps }: AppProps) {
   };
 
   return (
-    <ThemeContext.Provider value={{ theme, toggleTheme }}>
-      <div
-        style={{
-          width: '100%',
-          minHeight: '100vh',
-          ...themes[theme],
-        }}
-      >
-        <Navbar />
-        <Component {...pageProps} />
-      </div>
-    </ThemeContext.Provider>
+    <div>
+      <Component {...pageProps} />
+    </div>
   );
 }

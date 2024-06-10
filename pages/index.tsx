@@ -1,21 +1,28 @@
-import Head from 'next/head';
 import Link from 'next/link';
-import Widget from '@/components/Widget';
+import axios from 'axios';
 
-export default function Home() {
+export async function getServerSideProps() {
+  const userReq = await axios.get('https://jsonplaceholder.typicode.com/users');
+
+  return {
+    props: {
+      users: userReq.data,
+    },
+  };
+}
+
+export default function Home({ users }: any) {
   return (
-    <>
-      <Head>
-        <title> Welcome to my Next.js website </title>
-      </Head>
-      <div>
-        <Link href="/about" passHref>
-          About us
-        </Link>
-      </div>
-      <div>
-        <Widget pageName="index" />
-      </div>
-    </>
+    <ul>
+      {users.map((user: any) => {
+        return (
+          <li key={user.id}>
+            <Link href={`/users/${user.username}`} passHref>
+              {user.name}
+            </Link>
+          </li>
+        );
+      })}
+    </ul>
   );
 }
