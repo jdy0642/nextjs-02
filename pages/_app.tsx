@@ -15,7 +15,6 @@ const themes = {
   },
 };
 
-//
 export default function App({ Component, pageProps }: AppProps) {
   const [theme, setTheme] = useState<'light' | 'dark'>('light');
   const toggleTheme = () => {
